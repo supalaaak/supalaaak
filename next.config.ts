@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  output: 'export', // Required for static sites
+  basePath: '/supalaaak', // Only if not using a custom domain
+  images: { unoptimized: true }, // GitHub Pages doesn't support Next.js Image Optimization
 };
-
 export default nextConfig;
