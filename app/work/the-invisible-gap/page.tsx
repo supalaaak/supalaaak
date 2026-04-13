@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 // ── Reference definitions ──────────────────────────────────────────────────
 const REFS = {
@@ -571,12 +572,12 @@ export default function ComparativeStudyPage() {
     <main className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white antialiased">
       {/* Navigation */}
       <nav className="max-w-6xl mx-auto px-8 py-12 flex justify-between items-center border-b border-black/10">
-        <a
+        <Link
           href="/work"
           className="text-[10px] font-mono uppercase tracking-[0.4em] text-black/50 hover:text-black transition-colors"
         >
-          &larr;  Return to Work Index
-        </a>
+          &larr; Return to Work Index
+        </Link>
 
       </nav>
 
