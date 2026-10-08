@@ -18,7 +18,7 @@ const Hero = () => (
         SUPALAAAK<span className="text-gray-300">.</span>
       </h1>
       <p className="text-lg md:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
-        Investigative Data Analyst. Operative in AI, Quantitative Finance, and systemic forensics.
+        Investigative AI/SI/Data Analyst. Operative in AI, Quantitative Finance, and systemic forensics.
       </p>
     </div>
   </section>
@@ -29,9 +29,14 @@ const Profile = () => (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
       <SectionLabel number="01" title="Background" />
       <div className="md:col-span-8 text-left">
-        <p className="text-xl md:text-2xl leading-relaxed text-black mb-16 font-light">
+        <p className="text-xl md:text-2xl leading-relaxed text-black mb-8 font-light">
           Operating at the intersection of machine intelligence and deep-dive investigation. 
           Discretion is priority; results are the only metric.
+        </p>
+        <p className="text-lg leading-relaxed text-gray-600 mb-16 font-light">
+          Currently developing and operating an independent knowledge platform for the post-AI era.
+          Used internationally, it connects living and observed data with structured knowledge to support
+          practical, context-aware decisions.
         </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 pt-10 border-t border-black/5">
@@ -39,7 +44,7 @@ const Profile = () => (
             <h3 className="text-black text-xs font-mono uppercase tracking-widest font-bold">Core Experience</h3>
             <ul className="text-[11px] space-y-3 text-gray-500 font-mono">
               <li>[+] 10+Y PREDICTIVE MODELING</li>
-              <li>[+] 05Y FIN-DATA ARCHITECTURE</li>
+              <li>[+] 10+Y FIN-DATA ARCHITECTURE</li>
             </ul>
           </div>
           <div className="space-y-4">

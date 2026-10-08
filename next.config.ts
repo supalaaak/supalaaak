@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   output: 'export', // Required for static sites
   basePath: '/supalaaak', // Only if not using a custom domain
   assetPrefix: '/supalaaak',
