@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
+    "export": "next build",
     "postexport": "shx touch out/.nojekyll",
-    "deploy": "next build && npm run postexport && gh-pages -d out --nojekyll --cname https://supalaaak.github.io",
+    "deploy": "npm run export && gh-pages -d out --nojekyll",
     "start": "next start",
     "lint": "eslint"
   },

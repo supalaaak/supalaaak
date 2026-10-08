@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 // ── Reference definitions ──────────────────────────────────────────────────
@@ -64,7 +64,7 @@ function Ref({ id, children }: { id: keyof typeof REFS; children?: React.ReactNo
       target="_blank"
       rel="noopener noreferrer"
       title={ref.label}
-      className="inline-flex items-baseline gap-[2px] text-black/50 hover:text-black border-b border-dashed border-black/30 hover:border-black transition-colors text-[11px] font-mono leading-none mx-[2px] align-baseline"
+      className="text-sm mx-1"
     >
       {children ?? `[src]`}
     </a>
@@ -76,16 +76,16 @@ function Footnotes() {
   const entries = Object.entries(REFS);
   return (
     <section className="mt-20 pt-8 border-t border-black/10">
-      <h2 className="font-mono text-[10px] uppercase tracking-[0.5em] text-black/40 mb-6">En</h2>
+      <h2 className="text-base text-gray-800 mb-4">References</h2>
       <ol className="space-y-2">
         {entries.map(([, ref], i) => (
-          <li key={i} className="flex gap-3 text-[11px] font-mono text-black/40 leading-relaxed">
+          <li key={i} className="flex gap-3 text-base text-gray-800 leading-relaxed">
             <span className="shrink-0">{i + 1}.</span>
             <a
               href={ref.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black transition-colors break-all"
+              className="hover:text-black transition-colors break-words"
             >
               {ref.label} — <span className="underline underline-offset-2">{ref.url}</span>
             </a>
@@ -99,16 +99,16 @@ function Footnotes() {
 // ── English content ────────────────────────────────────────────────────────
 function EnglishContent() {
   return (
-    <article className="space-y-20">
+    <article className="reading-article">
 
       {/* ── Investigative Opening ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            00 // The Gap We Found
+      <section className="space-y-4">
+        <div>
+          <h2>
+            The Gap We Found
           </h2>
         </div>
-        <div className="md:col-span-8 text-lg font-light leading-relaxed text-gray-700 space-y-5">
+        <div className="text-base leading-relaxed text-gray-800 space-y-5">
           <p>
             In the course of assembling 11,394 peer-reviewed papers on diet and obesity from PubMed,
             a pattern emerged that was impossible to ignore:{' '}
@@ -124,15 +124,15 @@ function EnglishContent() {
             formulations versus high-fiber prescriptions, therapeutic diets versus commercial weight
             management kibble. The internal debates are fierce, well-funded, and highly published.
           </p>
-          <div className="bg-gray-50 border-l-2 border-black p-8 text-sm text-gray-600 italic">
-            "Of the 11,394 papers analyzed in this bibliometric study, only{' '}
+          <div className="bg-gray-50 border-l-2 border-black p-5 text-base text-gray-800">
+            &quot;Of the 11,394 papers analyzed in this bibliometric study, only{' '}
             <strong className="text-black not-italic">105 addressed companion animal weight management</strong>
             —a fraction of less than 1%—and of those 105, the number that explicitly compared findings
             against parallel human literature is{' '}
             <strong className="text-black not-italic">
               vanishingly small.
             </strong>
-            {' '}This is not a niche gap. It is a structural blind spot in global nutrition science."
+            {' '}This is not a niche gap. It is a structural blind spot in global nutrition science.&quot;
           </div>
           <p>
             This page investigates why that gap exists, what it costs us, and what a genuine
@@ -142,14 +142,14 @@ function EnglishContent() {
       </section>
 
       {/* ── 01 The Parallel Epidemics ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            01 // Two Epidemics, One Household
+      <section className="space-y-4">
+        <div>
+          <h2>
+            Two Epidemics, One Household
           </h2>
         </div>
-        <div className="md:col-span-8 space-y-6">
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+        <div className="space-y-6">
+          <p className="text-base leading-relaxed text-gray-800">
             By 2030, projections suggest approximately 78% of American adults will be overweight or
             obese.
             <Ref id="linder_2021">[Linder 2021]</Ref>{' '}
@@ -160,10 +160,10 @@ function EnglishContent() {
             globally.
             <Ref id="gbd_2019">[GBD 2019]</Ref>
           </p>
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+          <p className="text-base leading-relaxed text-gray-800">
             The correlation is not merely statistical coincidence. Research has documented a
             significant positive relationship (r = 0.60, p &lt; 0.001) between owner Body Mass Index
-            and their dogs' body condition scores,
+            and their dogs&apos; body condition scores,
             <Ref id="linder_2021">[Linder 2021]</Ref>{' '}
             and a separate register-based cohort study found{' '}
             <strong className="font-semibold text-black">
@@ -171,23 +171,23 @@ function EnglishContent() {
             </strong>—not genetically, but environmentally.
             <Ref id="delicano_2020">[Delicano 2020]</Ref>
           </p>
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+          <p className="text-base leading-relaxed text-gray-800">
             The shared household—shared food culture, shared sedentary routines, shared emotional
-            eating patterns—acts as a common environment that shapes both the owner's and the
-            pet's metabolic trajectory. Yet nutrition research continues to treat these two
+            eating patterns—acts as a common environment that shapes both the owner&apos;s and the
+            pet&apos;s metabolic trajectory. Yet nutrition research continues to treat these two
             populations as if they occupy different planets.
           </p>
 
           {/* Data callout */}
-          <div className="grid grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
             {[
               { stat: "50%+", label: "dogs now classified overweight or obese", src: "apop_2022" as keyof typeof REFS, srcLabel: "[APOP 2022]" },
               { stat: "61%", label: "cats classified overweight or obese", src: "apop_2022" as keyof typeof REFS, srcLabel: "[APOP 2022]" },
               { stat: "r = 0.60", label: "correlation between owner BMI and dog body condition score", src: "linder_2021" as keyof typeof REFS, srcLabel: "[Linder 2021]" },
             ].map((item, i) => (
               <div key={i} className="border border-black/10 p-5">
-                <p className="text-3xl font-light text-black mb-1">{item.stat}</p>
-                <p className="text-xs text-gray-500 font-light leading-snug">
+                <p className="text-3xl text-black mb-1">{item.stat}</p>
+                <p className="text-base text-gray-800 leading-relaxed">
                   {item.label}
                   <Ref id={item.src}>{item.srcLabel}</Ref>
                 </p>
@@ -198,15 +198,15 @@ function EnglishContent() {
       </section>
 
       {/* ── 02 The Internal Wars ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            02 // The Internal Wars
+      <section className="space-y-4">
+        <div>
+          <h2>
+            The Internal Wars
           </h2>
         </div>
-        <div className="md:col-span-8 space-y-8">
+        <div className="space-y-8">
 
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+          <p className="text-base leading-relaxed text-gray-800">
             Within each field, the debates are anything but quiet. The problem is they have been
             raging for so long, in such separate arenas, that neither side has paused to ask whether
             the other might have already found an answer.
@@ -214,10 +214,10 @@ function EnglishContent() {
 
           <div className="space-y-6">
             <div>
-              <h3 className="text-black font-semibold mb-3 uppercase text-xs font-mono tracking-widest">
+              <h3 className="text-black font-semibold mb-3 text-base">
                 [ Human Nutrition: The Macro Wars ]
               </h3>
-              <p className="text-gray-600 font-light leading-relaxed text-base">
+              <p className="text-gray-800 leading-relaxed text-base">
                 From 2010 to 2023, the human weight management literature was dominated by internal
                 conflict over macronutrient ratios. Low-carbohydrate research surged after 2019,
                 reaching over 100 papers annually, while low-fat advocates argued their approach
@@ -233,10 +233,10 @@ function EnglishContent() {
             </div>
 
             <div>
-              <h3 className="text-black font-semibold mb-3 uppercase text-xs font-mono tracking-widest">
+              <h3 className="text-black font-semibold mb-3 text-base">
                 [ Veterinary Nutrition: The Protein-Fiber Standoff ]
               </h3>
-              <p className="text-gray-600 font-light leading-relaxed text-base">
+              <p className="text-gray-800 leading-relaxed text-base">
                 The companion animal literature, operating at a fraction of the scale (105 studies),
                 has its own unresolved argument. High-protein formulations appeared in 20% of pet
                 weight management studies—nearly three times the rate seen in human literature
@@ -253,33 +253,33 @@ function EnglishContent() {
             </div>
           </div>
 
-          <div className="bg-gray-50 border-l-2 border-black p-8 text-sm text-gray-600 italic">
-            "The irony is documented in the data:{' '}
+          <div className="bg-gray-50 border-l-2 border-black p-5 text-base text-gray-800">
+            &quot;The irony is documented in the data:{' '}
             <strong className="text-black not-italic">
               both fields converge on caloric restriction as the dominant intervention
             </strong>{' '}
             (48.84% human, 55.79% pet studies), yet neither field has systematically studied
             whether the mechanisms by which caloric restriction produces weight loss are
-            identical across species—or whether they differ in ways that could inform both fields."
+            identical across species—or whether they differ in ways that could inform both fields.&quot;
           </div>
         </div>
       </section>
 
       {/* ── 03 The Structural Blind Spot ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            03 // Why Comparative Studies Are Rare
+      <section className="space-y-4">
+        <div>
+          <h2>
+            Why Comparative Studies Are Rare
           </h2>
         </div>
-        <div className="md:col-span-8 space-y-6">
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+        <div className="space-y-6">
+          <p className="text-base leading-relaxed text-gray-800">
             The absence of cross-species comparative nutrition research is not accidental. It is
             the product of structural forces that have kept the two fields apart since their
             modern foundations were established.
           </p>
 
-          <ol className="space-y-5 text-base text-gray-600 font-light leading-relaxed">
+          <ol className="space-y-5 text-base text-gray-800 leading-relaxed">
             {[
               {
                 n: "01",
@@ -308,9 +308,9 @@ function EnglishContent() {
               },
             ].map((item) => (
               <li key={item.n} className="flex gap-4">
-                <span className="shrink-0 font-mono text-[10px] text-black/30 pt-1">{item.n}.</span>
+                <span className="shrink-0 text-base text-gray-800 pt-1">{item.n}.</span>
                 <div>
-                  <p className="font-semibold text-black text-sm mb-1">{item.title}</p>
+                  <p className="font-semibold text-black text-base mb-1">{item.title}</p>
                   <p>{item.body}</p>
                 </div>
               </li>
@@ -320,14 +320,14 @@ function EnglishContent() {
       </section>
 
       {/* ── 04 What Cross-Species Data Reveals ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            04 // What the Data Actually Shows
+      <section className="space-y-4">
+        <div>
+          <h2>
+            What the Data Actually Shows
           </h2>
         </div>
-        <div className="md:col-span-8 space-y-8">
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+        <div className="space-y-8">
+          <p className="text-base leading-relaxed text-gray-800">
             When the two bodies of literature are placed side by side—as this bibliometric study
             does—several patterns emerge that neither field has been forced to confront in isolation.
           </p>
@@ -357,12 +357,12 @@ function EnglishContent() {
             ].map((item, i) => (
               <div key={i} className="border border-black/10 p-6">
                 <div className="flex items-start gap-3 mb-3">
-                  <span className="shrink-0 font-mono text-[9px] text-white bg-black px-2 py-[3px] tracking-widest mt-[2px]">
+                  <span className="shrink-0 text-base text-gray-800 bg-gray-100 px-2 py-[3px] mt-[2px]">
                     {item.flag}
                   </span>
-                  <p className="font-semibold text-black text-sm leading-snug">{item.heading}</p>
+                  <p className="font-semibold text-black text-base leading-relaxed">{item.heading}</p>
                 </div>
-                <p className="text-gray-600 font-light text-sm leading-relaxed">{item.body}</p>
+                <p className="text-gray-800 text-base leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
@@ -370,13 +370,13 @@ function EnglishContent() {
       </section>
 
       {/* ── 05 The Owner as Bridge ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            05 // The Owner as the Missing Variable
+      <section className="space-y-4">
+        <div>
+          <h2>
+            The Owner as the Missing Variable
           </h2>
         </div>
-        <div className="md:col-span-8 space-y-6 text-lg font-light leading-relaxed text-gray-700">
+        <div className="space-y-6 text-base leading-relaxed text-gray-800">
           <p>
             The most consequential finding that cross-species analysis surfaces is one that neither
             field has adequately addressed: the{' '}
@@ -412,27 +412,27 @@ function EnglishContent() {
       </section>
 
       {/* ── 06 Geography ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            06 // Geography of the Blind Spot
+      <section className="space-y-4">
+        <div>
+          <h2>
+            Geography of the Blind Spot
           </h2>
         </div>
-        <div className="md:col-span-8 space-y-6">
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+        <div className="space-y-6">
+          <p className="text-base leading-relaxed text-gray-800">
             The geographical concentration of both bodies of literature adds another layer to the
             problem. The United States produced 4,664 human weight management studies and 42
             companion animal studies—the largest output in both categories. The United Kingdom
             produced 2,203 human studies and 36 companion animal studies. Together, these two
             countries account for over 68% of human weight management research output.
           </p>
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+          <p className="text-base leading-relaxed text-gray-800">
             This concentration means the comparative gap is not only a gap between fields—it is
             also a gap between populations. Weight management research, in both human and
             veterinary contexts, overwhelmingly reflects high-income, Western dietary patterns,
             feeding infrastructures, and healthcare delivery models.{' '}
             <strong className="font-semibold text-black">
-              The world's fastest-growing obesity populations—in South and Southeast Asia,
+              The world&apos;s fastest-growing obesity populations—in South and Southeast Asia,
               Sub-Saharan Africa, Latin America—are represented in neither literature
               at proportional rates.
             </strong>
@@ -441,14 +441,14 @@ function EnglishContent() {
 
           {/* Country comparison table */}
           <div className="overflow-x-auto mt-4">
-            <table className="w-full text-xs border border-black/10 text-left">
+            <table className="w-full text-base border border-black/10 text-left">
               <thead>
-                <tr className="bg-black text-white">
-                  <th className="px-3 py-2 font-mono font-medium">Country</th>
-                  <th className="px-3 py-2 font-mono font-medium">Human Studies</th>
-                  <th className="px-3 py-2 font-mono font-medium">Pet Studies</th>
-                  <th className="px-3 py-2 font-mono font-medium">Ratio H:P</th>
-                  <th className="px-3 py-2 font-mono font-medium">Obesity Rate</th>
+                <tr className="bg-gray-100 text-gray-800">
+                  <th className="px-3 py-2 font-medium">Country</th>
+                  <th className="px-3 py-2 font-medium">Human Studies</th>
+                  <th className="px-3 py-2 font-medium">Pet Studies</th>
+                  <th className="px-3 py-2 font-medium">Ratio H:P</th>
+                  <th className="px-3 py-2 font-medium">Obesity Rate</th>
                 </tr>
               </thead>
               <tbody>
@@ -464,16 +464,16 @@ function EnglishContent() {
                   return (
                     <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       <td className="px-3 py-2 font-semibold border-r border-black/10 text-black">{row.country}</td>
-                      <td className="px-3 py-2 border-r border-black/10 font-mono">{row.human.toLocaleString()}</td>
-                      <td className="px-3 py-2 border-r border-black/10 font-mono">{row.pet}</td>
-                      <td className="px-3 py-2 border-r border-black/10 font-mono text-black/50">{ratio}:1</td>
-                      <td className="px-3 py-2 font-mono">{row.obesity}</td>
+                      <td className="px-3 py-2 border-r border-black/10">{row.human.toLocaleString()}</td>
+                      <td className="px-3 py-2 border-r border-black/10">{row.pet}</td>
+                      <td className="px-3 py-2 border-r border-black/10 text-gray-800">{ratio}:1</td>
+                      <td className="px-3 py-2">{row.obesity}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
-            <p className="text-[10px] text-gray-400 italic mt-2 font-mono">
+            <p className="text-base text-gray-800 mt-2">
               * Obesity rates sourced from World Obesity Federation Data Atlas.
               <Ref id="world_obesity">[World Obesity Federation]</Ref>{' '}
               Human:Pet ratio indicates papers per country—higher ratios signal a larger comparative gap.
@@ -483,14 +483,14 @@ function EnglishContent() {
       </section>
 
       {/* ── 07 What a Comparative Framework Would Look Like ── */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-12">
-        <div className="md:col-span-4">
-          <h2 className="text-[10px] font-mono uppercase tracking-[0.3em] text-black/40 sticky top-12">
-            07 // What a Comparative Framework Requires
+      <section className="space-y-4">
+        <div>
+          <h2>
+            What a Comparative Framework Requires
           </h2>
         </div>
-        <div className="md:col-span-8 space-y-6">
-          <p className="text-lg font-light leading-relaxed text-gray-700">
+        <div className="space-y-6">
+          <p className="text-base leading-relaxed text-gray-800">
             The data points toward what genuine cross-species nutrition research would need to
             address—and what makes it harder than it sounds.
           </p>
@@ -515,8 +515,8 @@ function EnglishContent() {
               },
             ].map((item, i) => (
               <div key={i} className="border-l-2 border-black/20 pl-5 py-1">
-                <p className="font-semibold text-black text-sm mb-1">{item.label}</p>
-                <p className="text-gray-600 font-light text-sm leading-relaxed">{item.body}</p>
+                <p className="font-semibold text-black text-base mb-1">{item.label}</p>
+                <p className="text-gray-800 text-base leading-relaxed">{item.body}</p>
               </div>
             ))}
           </div>
@@ -524,16 +524,16 @@ function EnglishContent() {
       </section>
 
       {/* ── Conclusion ── */}
-      <section className="border border-black/10 p-12 bg-black text-white">
-        <h2 className="font-mono text-[10px] uppercase tracking-[0.5em] mb-8 opacity-50">Finding</h2>
-        <p className="text-2xl font-light leading-relaxed italic text-gray-300 mb-6">
+      <section className="border-t border-gray-300 pt-6 space-y-4">
+        <h2 className="text-base mb-4">Finding</h2>
+        <p className="text-base leading-relaxed text-gray-800 mb-4">
           Two of the most urgent public health crises of the 21st century—human and companion
           animal obesity—share a household, share environmental risk factors, share a correlated
-          metabolic trajectory, and are studied by researchers who almost never read each other's
+          metabolic trajectory, and are studied by researchers who almost never read each other&apos;s
           work. The debate within each field is vigorous. The conversation between them has
           barely begun.
         </p>
-        <p className="text-sm font-light text-gray-400 leading-relaxed">
+        <p className="text-base text-gray-800 leading-relaxed">
           The 105 companion animal studies identified in our dataset over 13 years represent not a
           small field—they represent a missed opportunity for the 9,994 human studies that ran in
           parallel. Controlled experimental data that human researchers could not ethically produce
@@ -543,7 +543,7 @@ function EnglishContent() {
             href={REFS.pubmed_baseline.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 text-gray-400 hover:text-white transition-colors text-xs font-mono ml-2"
+            className="underline underline-offset-2 text-gray-800 hover:text-blue-800 transition-colors text-base ml-2"
           >
             [PubMed Baseline]
           </a>
@@ -569,36 +569,36 @@ export default function ComparativeStudyPage() {
   const active = meta['en'];
 
   return (
-    <main className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white antialiased">
+    <main className="reading-page" lang="en">
       {/* Navigation */}
-      <nav className="max-w-6xl mx-auto px-8 py-12 flex justify-between items-center border-b border-black/10">
+      <nav className="reading-nav">
         <Link
           href="/work"
-          className="text-[10px] font-mono uppercase tracking-[0.4em] text-black/50 hover:text-black transition-colors"
+          className="text-base text-gray-800 hover:text-black transition-colors"
         >
-          &larr; Return to Work Index
+          &larr; Back to work
         </Link>
 
       </nav>
 
-      <div className="max-w-4xl mx-auto px-8 py-24">
+      <div className="reading-body">
         {/* Header */}
-        <header className="mb-24">
-          <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-gray-400 mb-6 block">
+        <header className="reading-header">
+          <span className="text-base text-gray-800 mb-4 block">
             {active.tag}
           </span>
-          <h1 className="text-5xl md:text-7xl font-light tracking-tighter text-black mb-8 leading-tight">
+          <h1>
             {active.title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed max-w-2xl">
+          <p className="text-base text-gray-800 leading-relaxed">
             {active.desc}
           </p>
           {/* Meta line */}
-          <div className="mt-8 flex gap-6 text-[10px] font-mono text-black/30 uppercase tracking-widest">
+          <div className="mt-8 flex gap-6 text-base text-gray-800">
             <span>Dataset: 11,394 Papers</span>
-            <span>//</span>
+            <span>·</span>
             <span>Period: 2010–2023</span>
-            <span>//</span>
+            <span>·</span>
             <span>Source: PubMed</span>
           </div>
         </header>
@@ -610,9 +610,8 @@ export default function ComparativeStudyPage() {
         <Footnotes/>
 
         {/* Footer */}
-        <footer className="mt-16 pt-12 border-t border-black/5 flex justify-between items-center text-[9px] font-mono text-gray-400 uppercase tracking-[0.4em]">
+        <footer className="reading-footer">
           <span>Case ID: 2026-NUT-COMPARATIVE</span>
-          <span className="animate-pulse text-black/20">EOD_SIGNAL_STABLE</span>
         </footer>
       </div>
     </main>
