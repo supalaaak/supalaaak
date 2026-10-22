@@ -11,7 +11,7 @@ export default function Home() {
         <header className="reading-header">
           <h1>SUPALAAAK</h1>
           <p>
-            Investigative AI/SI/Data Analyst. Operative in AI, Quantitative Finance,
+            Investigative AI/SI/Data Engineer. Operative in AI, Quantitative Finance,
             and systemic forensics.
           </p>
         </header>
